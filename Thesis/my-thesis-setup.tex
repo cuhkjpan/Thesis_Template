@@ -1,0 +1,64 @@
+% !TEX root = my-thesis.tex
+
+
+% **************************************************
+% Files' Character Encoding
+% **************************************************
+\PassOptionsToPackage{utf8}{inputenc}
+\usepackage{inputenc}
+
+
+% **************************************************
+% Information and Commands for Reuse
+% **************************************************
+\newcommand{\thesisTitle}{An Adaptive Sampling-based Strategy for Mobile Robot Motion Planning}
+\newcommand{\thesisName}{WANG, Jiankun}
+\newcommand{\thesisSubject}{Documentation}
+\newcommand{\thesisDate}{May 2019}
+\newcommand{\thesisVersion}{My First Draft}
+
+\newcommand{\thesisUniversity}{\protect{The Chinese University of Hong Kong}}
+\newcommand{\thesisUniversityDepartment}{Electronic Engineering}
+\newcommand{\thesisUniversityInstitute}{Institute for Clean Thesis Dev}
+\newcommand{\thesisUniversityGroup}{Clean Thesis Group (CTG)}
+\newcommand{\thesisUniversityCity}{Hong Kong}
+\newcommand{\thesisUniversityStreetAddress}{Rm.432, Ho Sin-hang Engineering Buidling, The Chinese University of Hong Kong, Shatin, N.T.}
+\newcommand{\thesisUniversityPostalCode}{Postal Code}
+
+
+% **************************************************
+% Debug LaTeX Information
+% **************************************************
+%\listfiles
+
+
+% **************************************************
+% Load and Configure Packages
+% **************************************************
+\usepackage[english]{babel} % babel system, adjust the language of the content
+\PassOptionsToPackage{% setup clean thesis style
+    figuresep=colon,%
+    sansserif=false,%
+    hangfigurecaption=false,%
+    hangsection=true,%
+    hangsubsection=true,%
+    colorize=full,%
+    colortheme=bluemagenta,%
+    bibsys=biber,%
+    bibfile=bib-refs,%
+    bibstyle=numeric,%alphabetic,%
+    wrapfooter=true,%false
+}{cleanthesis}
+\usepackage{cleanthesis}
+
+\hypersetup{% setup the hyperref-package options
+    pdftitle={\thesisTitle},    %   - title (PDF meta)
+    pdfsubject={\thesisSubject},%   - subject (PDF meta)
+    pdfauthor={\thesisName},    %   - author (PDF meta)
+    plainpages=false,           %   -
+    colorlinks=false,           %   - colorize links?
+    pdfborder={0 0 0},          %   -
+    breaklinks=true,            %   - allow line break inside links
+    bookmarksnumbered=true,     %
+    bookmarksopen=true          %
+}

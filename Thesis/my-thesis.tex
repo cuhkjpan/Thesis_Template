@@ -1,0 +1,165 @@
+% **************************************************
+% Author:Jiankun WANG
+% **************************************************
+
+% **************************************************
+% !!! Read Me !!!
+% (1)Use Texstudio 
+% (2)click Options-->Configure TexStudio-->Builder-->Default Complier:XeLatex
+% (3)click Options-->Configure TexStudio-->Builder-->Default Bibliography:Biber
+% (4)Encoding:UTF-8
+% (5)if something wrong in bibliography, click Tools-->Command-->Biber
+% (6)Compile the Chinese abstract with package xeCJK before the final version,
+%    since compling xeCJK costs a long time
+% **************************************************
+
+
+% **************************************************
+% Document Class Definition
+% **************************************************
+\documentclass[%
+    paper=A4,               % paper size --> A4 is default in Germany
+    twoside=true,           % onesite or twoside printing
+    openright,              % doublepage cleaning ends up right side
+    parskip=full,           % spacing value / method for paragraphs
+    chapterprefix=true,     % prefix for chapter marks
+    12pt,                   % font size
+    headings=normal,        % size of headings
+    bibliography=totoc,     % include bib in toc
+    listof=totoc,           % include listof entries in toc
+    titlepage=on,           % own page for each title page
+    captions=tableabove,    % display table captions above the float env
+    draft=false,            % value for draft version
+]{scrreprt}%
+
+%\usepackage{xeCJK} % COMMENT THIS LINE BEFORE FINAL VERSION
+\usepackage{graphics} % for pdf, bitmapped graphics files
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{rotating}%sidewaysfigure
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{epsfig} % for postscript graphics files
+\usepackage{times} % assumes new font selection scheme installed
+\usepackage{amsmath} % assumes amsmath package installed
+\usepackage{amssymb}  % assumes amsmath package installed
+\usepackage{url}
+\usepackage{epstopdf}
+\usepackage{multicol}
+\usepackage{bm}
+\usepackage{mathrsfs}
+\usepackage{color}
+\usepackage[table]{xcolor}
+\usepackage[T1]{fontenc}% optional T1 font encoding
+\usepackage{float}
+\usepackage{bigstrut}
+\usepackage{balance}
+\usepackage{caption}
+\usepackage{amsopn}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+\usepackage{placeins}
+\usepackage{amsbsy}
+\usepackage{amsthm}% for the lemma and proof
+%\usepackage{CJKutf8}% for chinese
+\newtheorem{lemma}{Lemma}
+\newtheorem{mydef}{Definition}
+\newtheorem{mythe}{Theorem}
+\usepackage{url}
+
+\usepackage[nottoc]{tocbibind}% automatically add the figure list and the table list to the content
+\PassOptionsToPackage{subfigure}{tocloft} %Jiankun Changes to fix the bug
+
+% **************************************************
+% Setup YOUR thesis document in this file !
+% **************************************************
+\input{my-thesis-setup}
+
+
+% **************************************************
+% Document CONTENT
+% **************************************************
+\begin{document}
+
+% --------------------------
+% rename document parts
+% --------------------------
+\renewcaptionname{english}{\figurename}{Fig.}
+\renewcaptionname{english}{\tablename}{Tab.}
+
+% --------------------------
+% Front matter
+% --------------------------
+\setstretch{1.2}
+\pagenumbering{roman}			% roman page numbing (invisible for empty page style)
+\pagestyle{empty}				% no header or footers
+\input{content/titlepages}		% INCLUDE: all titlepages
+\cleardoublepage
+
+\pagestyle{plain}				% display just page numbers
+\input{content/abstract}		% INCLUDE: the abstracts (english)
+\addcontentsline{toc}{chapter}{Abstract}
+\cleardoublepage
+
+
+% **************************************************
+% Comment the following three lines before your final version
+% **************************************************
+\pagestyle{plain}				% display just page numbers
+\input{content/abstract_chinese}		% INCLUDE: the abstracts (Chinese)
+\cleardoublepage
+%
+
+\input{content/acknowledgement} % INCLUDE: acknowledgement
+\addcontentsline{toc}{chapter}{Acknowledgement}
+\cleardoublepage
+
+\setstretch{1.5}
+
+\cleardoublepage
+\listoffigures
+
+\cleardoublepage
+\listoftables
+\cleardoublepage
+%
+\setcounter{tocdepth}{2}		% define depth of toc
+\pdfbookmark[0]{Contents}{Contents}
+\tableofcontents				% display table of contents
+\cleardoublepage
+
+% --------------------------
+% Body matter
+% --------------------------
+\pagenumbering{arabic}			% arabic page numbering
+\setcounter{page}{1}			% set page counter
+\pagestyle{maincontentstyle} 	% fancy header and footer
+
+
+
+\input{content/chapter-introduction}   % INCLUDE: introduction
+\input{content/chapter-conclusion}     % INCLUDE: conclusion
+
+% --------------------------
+% Back matter
+% --------------------------
+\appendix\cleardoublepage
+
+%
+{%
+\setstretch{1.5}
+\renewcommand{\bibfont}{\normalfont\small}
+\setlength{\biblabelsep}{0pt}
+\setlength{\bibitemsep}{0.5\baselineskip plus 0.5\baselineskip}
+\printbibliography%[nottype=online]
+%\printbibliography[heading=subbibliography,title={Webpages},type=online,prefixnumbers={@}]
+}
+\cleardoublepage
+
+
+
+\mbox{}
+
+% **************************************************
+% End of Document CONTENT
+% **************************************************
+\end{document}

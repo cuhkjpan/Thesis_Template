@@ -1,0 +1,23 @@
+% !TEX root = ../my-thesis.tex
+%
+%\pdfbookmark[0]{Abstract}{Abstract}
+\chapter*{Abstract}
+\label{sec:abstract}
+\vspace*{-10mm}
+
+\noindent Sampling-based path planners are very popular due to their ability to fast and efficiently explore the state space. 
+Also, they scale well with the dimensionality of the state space.
+Usually, they either probabilistically or deterministically sample nodes to uniformly cover the state space.
+However, in many cases, it may become more efficient to not uniformly explore the state space because the state space of the robot is often very small due to some constraints such as differential constraints and clearance requirements.
+So it is reasonably to calculate a non-uniform distribution where the optimal trajectory may exist for a given task, with which the path planning process can be further accelerated.
+In this paper, we propose a generalized path planning network, namely Neural RRT*, which can be used to generate a prior non-uniform sampling distribution for the given workspace and task.
+Not only the obstacles, the initial and goal state, we also take into account the constraints including the map size, step size and clearance.
+When the constraints change, the non-uniform sampling distribution becomes different accordingly.
+Through a series of simulation experiments, our methodology is shown to effectively accelerate the sampling-based path planning and stably deal with different constraints.
+
+\textrm{Through a series of simulation experiments, our methodology is shown to effectively accelerate the sampling-based path planning and stably deal with different constraints.}
+
+\vspace*{15mm}
+
+
+
